@@ -30,11 +30,11 @@ public class HomeController {
   // Reverse helper method
   public static String reverse(String sentence){
     String[] str = sentence.split(" ");
-    String reverse = new String();
+    StringBuilder reverse = new StringBuilder("");
     for(int i = str.length - 1; i >= 0; i--){
-      reverse = reverse + str[i] + " ";
+      reverse.append(str[i]).append(" ");
     }
-    return reverse.trim();
+    return reverse.toString().trim();
   }
 
 }
