@@ -30,7 +30,7 @@ public class HomeController {
   // Reverse helper method
   public static String reverse(String sentence){
     String[] str = sentence.split(" ");
-    StringBuilder reverse = new StringBuilder("");
+    StringBuilder reverse = new StringBuilder();
     for(int i = str.length - 1; i >= 0; i--){
       reverse.append(str[i]).append(" ");
     }
