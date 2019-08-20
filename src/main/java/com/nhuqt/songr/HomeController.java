@@ -21,17 +21,20 @@ public class HomeController {
     return "capitalize";
   }
 
-//  Write a unit test for the word reversing functionality of the above route.
-//  (Note that this will be easiest if you write a helper method for the word reversing, so that you can call that method for testing.)
   @GetMapping("/reverse")
   public String reverseWords(@RequestParam(required = false, defaultValue = "Hello world!") String sentence, Model m){
-    m.addAttribute("sentence", sentence);
+    m.addAttribute("sentence", reverse(sentence));
     return "reversewords";
   }
 
-  // reverse helper method
-//  public String reverse(String sentence){
-////    sentence.split(" ")
-//  }
+  // Reverse helper method
+  public static String reverse(String sentence){
+    String[] str = sentence.split(" ");
+    String reverse = new String();
+    for(int i = str.length - 1; i >= 0; i--){
+      reverse = reverse + str[i] + " ";
+    }
+    return reverse.trim();
+  }
 
 }
