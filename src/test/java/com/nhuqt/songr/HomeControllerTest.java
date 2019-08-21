@@ -1,5 +1,6 @@
 package com.nhuqt.songr;
 
+import com.nhuqt.songr.controllers.HomeController;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

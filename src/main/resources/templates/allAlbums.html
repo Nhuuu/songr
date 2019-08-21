@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Albums</title>
+</head>
+<body>
+    <h1>All Albums</h1>
+    <div th:each="album : ${albums}">
+        <h3 th:id="${album.title}" th:text="${album.title} + ' by ' + ${album.artist}"></h3>
+    </div>
+
+    <form method="POST" action="/albums">
+        <label for="title">Album Title</label>
+        <input id="title" name="title" />
+        <label for="artist">Artist</label>
+        <input id="artist" name="artist" />
+        <label for="songCount"># of Songs</label>
+        <input id="songCount" name="songCount" type="number" min="1" max="30"/>
+        <label for="length">Song length in seconds</label>
+        <input id="length" name="length" type="number" min="20"/>
+        <label for="imageUrl">Album Image Url</label>
+        <input id="imageUrl" name="imageUrl" type="url"/>
+        <input type="submit" />
+    </form>
+</body>
+</html>
