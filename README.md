@@ -13,4 +13,5 @@ Allows user to go to three routes, hello, capitalize, and reversewords.
 ## To use
 * Install dependencies:
     * Run Build Project
+    * ./gradlew run
 
