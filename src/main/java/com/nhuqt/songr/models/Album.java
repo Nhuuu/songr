@@ -1,9 +1,7 @@
 package com.nhuqt.songr.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -16,6 +14,9 @@ public class Album {
   int songCount;
   int length;
   String imageUrl;
+
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "album")
+  List<Song> songs;
 
   public Album(){}
 
@@ -33,6 +34,14 @@ public class Album {
 
   public String getArtist() {
     return artist;
+  }
+
+  public long getId() {
+    return id;
+  }
+
+  public List<Song> getSongs() {
+    return songs;
   }
 
   public int getSongCount() {

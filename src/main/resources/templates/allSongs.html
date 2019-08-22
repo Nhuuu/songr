@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Songs</title>
+</head>
+<body>
+    <h1>All Songs</h1>
+    <div th:each="song: ${songs}">
+        <h3 th:id="${song.title}" th:text="${song.title}"></h3>
+        <!--Add album and link to album here-->
+    </div>
+
+</body>
+</html>
