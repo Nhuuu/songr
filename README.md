@@ -11,7 +11,5 @@ Allows user to go to three routes, hello, capitalize, and reversewords.
 * /albums - route will post form information to the database.
 
 ## To use
-* Install dependencies:
-    * Run Build Project
-    * ./gradlew run
+* ./gradlew run
 
