@@ -1,5 +1,5 @@
 # Songr
-Allows user to go to three routes, hello, capitalize, and reversewords.
+Allows user to add albums and song tracks to the albums.
 
 ## HomeController.java
 * /hello - route will return an html that says Hello World!
@@ -8,7 +8,12 @@ Allows user to go to three routes, hello, capitalize, and reversewords.
 
 ## AlbumController.java
 * /albums - route will show all of the albums from the database as well as a form.
-* /albums - route will post form information to the database.
+* /albums - route will post new album information to the database.
+* /albums{id} - will show one album, all of the songs related to this album, and a form to add more songs to the album.
+
+## SongController.java
+* /songs - route will get all songs and direct to AllSongs.html.
+* /songs - route will add a song to the database
 
 ## To use
 * ./gradlew run
