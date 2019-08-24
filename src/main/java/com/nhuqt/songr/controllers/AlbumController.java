@@ -30,7 +30,7 @@ public class AlbumController {
     return "allAlbums";
   }
 
-  @GetMapping("/albums/{id}")
+  @GetMapping("/album/{id}")
   public String getOneAlbum(@PathVariable long id, Model m){
     Album a = albumRepository.findById(id).get();
     m.addAttribute("album", a);
