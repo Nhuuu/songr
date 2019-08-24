@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -29,20 +30,12 @@ public class SongController {
     return "allSongs";
   }
 
-  //  A user should be able to add songs to an album.
   @PostMapping("/songs")
-  public RedirectView addSong(String title, int length, int trackNumber, Album album) {
-    Album a = albumRepository.findByTitle(album.getTitle());
-    if(a == null){
-      a = album;
-      albumRepository.save(a);
-    }
+  public RedirectView addSong(String title, int length, int trackNumber, long id) {
+    Album a = albumRepository.findById(id).get();
     Song s = new Song(title, length, trackNumber, a);
     songRepository.save(s);
-    return new RedirectView("/songs");
+    return new RedirectView("/albums/" + id);
   }
-
-
-
 
 }
