@@ -12,13 +12,14 @@
     </div>
 
     <h2>Add songs to this album!</h2>
-    <form method="POST" action="/albums/ + ${album.id} + /songs">
+    <form method="POST" action="/songs">
         <label for="title">Song Title</label>
         <input id="title" name="title">
         <label for="length">Song Length(secs)</label>
         <input id="length" name="length">
         <label for="trackNumber">Track #</label>
         <input id="trackNumber" name="trackNumber">
+        <input type="hidden" name="id" th:value="${album.id}">
         <input type="submit">
     </form>
 </body>

@@ -1,7 +1,9 @@
 package com.nhuqt.songr.controllers;
 
+import com.nhuqt.songr.models.Song;
 import com.nhuqt.songr.models.Album;
 import com.nhuqt.songr.models.AlbumRepository;
+import com.nhuqt.songr.models.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,9 @@ public class AlbumController {
   @Autowired
   AlbumRepository albumRepository;
 
+  @Autowired
+  SongRepository songRepository;
+
   @GetMapping("/albums")
   public String getAllAlbums(Model m) {
     List<Album> albums = albumRepository.findAll();
@@ -29,6 +34,8 @@ public class AlbumController {
   public String getOneAlbum(@PathVariable long id, Model m){
     Album a = albumRepository.findById(id).get();
     m.addAttribute("album", a);
+    List<Song> songs = songRepository.findByAlbum(a);
+    m.addAttribute("songs", songs);
     return "oneAlbum";
   }
 
